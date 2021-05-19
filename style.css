@@ -8,6 +8,6 @@
        url('fonts/hussarbd-web.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-p {
-    font-family: 'Hussar';
+* {
+    font-family: 'Hussar', sans-serif;
 }
