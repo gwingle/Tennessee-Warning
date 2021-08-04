@@ -1,43 +1,53 @@
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+     <meta charset="UTF-8">
+ <link rel="stylesheet" href="style.css">
 
-    <script src="//unpkg.com/canvas-txt"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//unpkg.com/canvas-txt"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-
 <body>
-    <h1>Tennessee Warning Generator</h1>
-    <img style="display:none" src="base.png" />
-    <textarea id="inp" placeholder="Type your NOTICE here"></textarea>
+<h1>Tennessee Warning Generator</h1>
+<form>
+    <img style="display:none" src="base.png"/>
+ <textarea id="inp"></textarea>
+  <button type="submit">Save</button>
+</form>
+<canvas id="canvas"/>
 
-    <canvas id="canvas" />
+<script>
+    var canvasTxt = window.canvasTxt.default
+$(window).on("load", function() {
+    var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d');
+    canvas.width = 900; //$('img').width();
+    canvas.height = 1200; //$('img').height();
+    ctx.drawImage($('img').get(0), 0, 0, 900, 1200);
+    ctx.font = "48pt Hussar";
+    ctx.textAlign = "center";
+    $(document).on('input','#inp',function(){
+        //redraw image
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage($('img').get(0), 0, 0, 900, 1200);
+        //refill text
 
-    <script>
-        var canvasTxt = window.canvasTxt.default
-        $(window).on("load", function() {
-            var canvas = document.getElementById('canvas'),
-                ctx = canvas.getContext('2d');
-            canvas.width = 900; //$('img').width();
-            canvas.height = 1200; //$('img').height();
-            ctx.drawImage($('img').get(0), 0, 0, 900, 1200);
-            ctx.font = "48pt Hussar";
-            ctx.textAlign = "center";
-            $(document).on('input', '#inp', function() {
-                //redraw image
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage($('img').get(0), 0, 0, 900, 1200);
-                //refill text
+        canvasTxt.fontSize = 68;
+        canvasTxt.font = "Hussar";
 
-                canvasTxt.fontSize = 68;
-                canvasTxt.font = "Hussar";
-                canvasTxt.drawText(ctx, $(this).val().toUpperCase(), 25, 400, 850, 700)
-            });
-            $('button').click(function() {
-                console.log(ctx.getImageData(50, 50, 100, 100));
-            });
-        });
-    </script>
+        canvasTxt.drawText(ctx, $(this).val().toUpperCase(), 25, 400, 850, 700)
+        // ctx.fillStyle = "black";
+        // ctx.fillText($(this).val(),450,800);
+    });
+    $('button').click(function(){
+        console.log(ctx.getImageData(50, 50, 100, 100));
+    });
+    // function draw() {
+    //     ctx.drawImage($('img').get(0), 0, 0, 900, 1200);
+    // }
+});
+
+
+
+</script>
 
 
 </body>

@@ -1,23 +1,13 @@
 @font-face {
-    font-family: 'Hussar';
-    src: url('fonts/hussarbd-web.eot');
-    src: url('fonts/hussarbd-web.eot?#iefix') format('embedded-opentype'),
-        url('fonts/hussarbd-web.woff2') format('woff2'),
-        url('fonts/hussarbd-web.woff') format('woff'),
-        url('fonts/hussarbd-web.ttf') format('truetype'),
-        url('fonts/hussarbd-web.svg#svgFontName') format('svg');
+  font-family: 'Hussar';
+  src: url('fonts/hussarbd-web.eot'); /* IE9 Compat Modes */
+  src: url('fonts/hussarbd-web.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/hussarbd-web.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/hussarbd-web.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/hussarbd-web.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/hussarbd-web.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 * {
     font-family: 'Hussar', sans-serif;
-    text-align: center;
-    margin: 10px auto;
-}
-
-canvas {
-    display: block;
-}
-
-textarea {
-    text-transform: uppercase;
 }
